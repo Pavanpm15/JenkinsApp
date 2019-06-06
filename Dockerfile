@@ -1,9 +1,11 @@
-FROM tomcat:8.0
-
-LABEL maintainer=PAVAN
-
-ADD jenkins.war /usr/local/tomcat/webapps/
-
-EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
+version: '3'
+services:
+  jenkins:
+    image: jenkins
+    ports:
+     - "8180:8080"
+     - "50000:50000"
+  tomcat:
+    image: tomcat
+    ports:
+     - "8280:8080"
